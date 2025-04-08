@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ece.guide</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            transform: scale(1.3);
+            transform-origin: top center;
+            font-family: Arial, sans-serif;
+            background: #786de7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: #4c486d;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .button {
+            background: #e42525;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            padding: 12px;
+            width: 210px;
+        }
+
+        .readmore {
+            display: block;
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 50px;
+            border: none;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .readmore-content {
+            font-size: 14px;
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            background: #eee;
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .readless {
+            display: block;
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .faq {
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            margin: 15px auto;
+            width: 50%;
+        }
+
+        .faq-question {
+            width: 70%;
+            background: #f8f8f8;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 20px;
+            border: none;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            margin: 0 auto;
+            width: 65%;
+            font-size: 14px;
+            display: none;
+            background: #f8f8f8;
+            border-radius: 20px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 30px;
+            background: #4c486d;
+            padding: 15px;
+        }
+
+        img {
+            width: 212px;
+            height: 141px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 1000;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: left;
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            function toggleDisplay(button) {
+                let content = button.nextElementSibling;
+                let readLess = content.querySelector(".readless");
+
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                    button.style.display = "block";
+                } else {
+                    content.style.display = "block";
+                    button.style.display = "none";
+                }
+                if (readLess) readLess.style.display = content.style.display;
+            }
+
+            document.querySelectorAll(".readmore").forEach(button => {
+                button.addEventListener("click", () => toggleDisplay(button));
+            });
+
+            document.querySelectorAll(".readless").forEach(button => {
+                button.addEventListener("click", () => {
+                    let content = button.parentElement;
+                    content.style.display = "none";
+                    content.previousElementSibling.style.display = "block";
+                });
+            });
+
+            document.querySelectorAll(".faq-question").forEach(button => {
+                button.addEventListener("click", () => {
+                    let answer = button.nextElementSibling;
+                    answer.style.display = answer.style.display === "block" ? "none" : "block";
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h2>The art of electrical and computer engineering</h2>
+            <ul class="links">
+                <li><a href="https://www.ieee.org/" target="_blank">ieee.org</a></li>
+                <li><a href="https://www.ece.upatras.gr/index.php/el/" target="_blank">ece.upatras.gr</a></li>
+                <li><a href="https://home.cern/" target="_blank">Cern</a></li>
+                <li><a href="https://youtu.be/H7q7ArJ5lXY?si=5YRd2tiZ3xF7oWuL" target="_blank">
+                        <button class="button">YouTube Guide</button></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <h3>Electrical Automations</h3>
+            <img src="automatismoi_848x565.jpg" class="img" alt="automatic">
+            <p>Electrical automation is all about using smart systems...</p>
+            <button class="readmore">Read more</button>
+            <div class="readmore-content">to handle tasks that used to require manual work. It’s everywhere, from
+                factories and power grids to smart homes, making processes faster, safer, and more efficient. Imagine
+                machines that adjust themselves in real time or lights that turn on when you enter a room. Businesses
+                love automation because it cuts costs and boosts productivity, while everyday people enjoy the
+                convenience of automated systems in their homes. As technology keeps advancing, automation is getting
+                even smarter, helping us work and live with less hassle.
+                <button class="readless">Read less</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Green Energy</h3>
+            <img src="Energy_768x432.jpg" class="img" alt="green energy">
+            <p>Green energy is all about using natural, renewable...</p>
+            <button class="readmore">Read more</button>
+            <div class="readmore-content"> sources like the sun, wind, and water to generate power without harming the
+                planet. Unlike fossil fuels, which pollute the air and contribute to climate change, green energy is
+                clean, sustainable, and endlessly available. Solar panels on rooftops, wind turbines in open fields, and
+                hydroelectric dams are just a few ways we’re harnessing nature’s power. As technology improves, green
+                energy is becoming more affordable and accessible, helping us move toward a future where we rely less on
+                harmful fuels and more on the earth’s natural resources. The best part? It’s good for both the
+                environment and our wallets in the long run!
+                <button class="readless">Read less</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Computer Science</h3>
+            <img src="computer_736x304.jpg" class="img" alt="computer science">
+            <p>Computer science is the backbone of the digital...</p>
+            <button class="readmore">Read more</button>
+            <div class="readmore-content">world, shaping everything from smartphones and apps to artificial
+                intelligence and cybersecurity. It’s all about solving problems using logic, coding, and algorithms to
+                create software, automate tasks, and process data. Whether it’s building websites, developing video
+                games, or designing self-driving cars, computer science is at the heart of innovation. As technology
+                keeps evolving, so do the opportunities—making it an exciting and ever-growing field that impacts nearly
+                every part of our daily lives.
+                <button class="readless">Read less</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h1>Common Questions</h1>
+        <div class="faq-item">
+            <button class="faq-question">How are electrical and computer engineering related?
+            </button>
+            <div class="faq-answer">It's a simple equation: Electrical engineering + computer science = computer
+                engineering. To put it more broadly, computer engineering combines electrical engineering and computer
+                science principles to design, develop, and integrate computer hardware and software systems.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What do electrical engineers do in renewable energy?</button>
+            <div class="faq-answer">Electrical Engineers work across a broad range of activities, from designing
+                electrical systems for renewable energy plants to managing the installation and commissioning of these
+                projects. They also play a key role in optimising performance, and ensuring systems operate reliably.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What is a hard skill for engineering?
+            </button>
+            <div class="faq-answer">Some of the most popular hard engineering skills include programming, manufacturing,
+                quality control, design, and more.</div>
+        </div>
+    </section>
+
+    <footer>
+        <h4>© 2025 Privacy Terms</h4>
+    </footer>
+</body>
+
+</html>
